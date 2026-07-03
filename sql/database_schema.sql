@@ -500,9 +500,7 @@ SELECT
 FROM stg_test2_term3;
 
 -- creating Groupwork fact table
-SELECT COUNT(*) AS total_rows
-FROM fact_groupwork;
-SHOW CREATE TABLE fact_groupwork;
+
 CREATE TABLE fact_groupwork (
 
     Student_ID VARCHAR(10),
@@ -529,5 +527,371 @@ CREATE TABLE fact_groupwork (
         FOREIGN KEY (Term_ID)
         REFERENCES dim_term(Term_ID)
 );
+INSERT INTO fact_groupwork (
+    Student_ID,
+    Term_ID,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+)
+SELECT
+    Student_ID,
+    1,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+FROM stg_groupwork_term1;
 
+INSERT INTO fact_groupwork (
+    Student_ID,
+    Term_ID,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+)
+SELECT
+    Student_ID,
+    2,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+FROM stg_groupwork_term2
+WHERE Student_ID IS NOT NULL
+  AND Student_ID <> '';
+  
+  INSERT INTO fact_groupwork (
+    Student_ID,
+    Term_ID,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+)
+SELECT
+    Student_ID,
+    3,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+FROM stg_groupwork_term3
+WHERE Student_ID IS NOT NULL
+  AND Student_ID <> '';
+ 
+CREATE TABLE fact_projectwork (
 
+    Student_ID VARCHAR(10),
+    Term_ID INT,
+
+    `ENGLISH LANGUAGE` DECIMAL(5,2),
+    `SOCIAL STUDIES` DECIMAL(5,2),
+    `REL. & MORAL EDU.` DECIMAL(5,2),
+    `MATHEMATICS` DECIMAL(5,2),
+    `INTEGRATED SCIENCE` DECIMAL(5,2),
+    `COMPUTING` DECIMAL(5,2),
+    `FRENCH` DECIMAL(5,2),
+    `GH. LANG. (AKUAPEM TWI)` DECIMAL(5,2),
+    `CAREER TECHNOLOGY` DECIMAL(5,2),
+    `CREATIVE ARTS & DESIGN` DECIMAL(5,2),
+
+    PRIMARY KEY (Student_ID, Term_ID),
+
+    CONSTRAINT fk_projectwork_student
+        FOREIGN KEY (Student_ID)
+        REFERENCES dim_student(Student_ID),
+
+    CONSTRAINT fk_projectwork_term
+        FOREIGN KEY (Term_ID)
+        REFERENCES dim_term(Term_ID)
+);
+
+INSERT INTO fact_projectwork (
+    Student_ID,
+    Term_ID,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+)
+SELECT
+    Student_ID,
+    1,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+FROM stg_projectwork_term1;
+
+INSERT INTO fact_projectwork (
+    Student_ID,
+    Term_ID,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+)
+SELECT
+    Student_ID,
+    2,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+FROM stg_projectwork_term2;
+
+INSERT INTO fact_projectwork (
+    Student_ID,
+    Term_ID,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+)
+SELECT
+    Student_ID,
+    3,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+FROM stg_projectwork_term3;
+
+CREATE TABLE fact_examscore (
+
+    Student_ID VARCHAR(10),
+    Term_ID INT,
+
+    `ENGLISH LANGUAGE` DECIMAL(5,2),
+    `SOCIAL STUDIES` DECIMAL(5,2),
+    `REL. & MORAL EDU.` DECIMAL(5,2),
+    `MATHEMATICS` DECIMAL(5,2),
+    `INTEGRATED SCIENCE` DECIMAL(5,2),
+    `COMPUTING` DECIMAL(5,2),
+    `FRENCH` DECIMAL(5,2),
+    `GH. LANG. (AKUAPEM TWI)` DECIMAL(5,2),
+    `CAREER TECHNOLOGY` DECIMAL(5,2),
+    `CREATIVE ARTS & DESIGN` DECIMAL(5,2),
+
+    PRIMARY KEY (Student_ID, Term_ID),
+
+    CONSTRAINT fk_examscore_student
+        FOREIGN KEY (Student_ID)
+        REFERENCES dim_student(Student_ID),
+
+    CONSTRAINT fk_examscore_term
+        FOREIGN KEY (Term_ID)
+        REFERENCES dim_term(Term_ID)
+
+);
+
+INSERT INTO fact_examscore (
+    Student_ID,
+    Term_ID,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+)
+SELECT
+    Student_ID,
+    1,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+FROM stg_examscore_term1;
+
+INSERT INTO fact_examscore (
+    Student_ID,
+    Term_ID,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+)
+SELECT
+    Student_ID,
+    2,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+FROM stg_examscore_term2;
+
+INSERT INTO fact_examscore (
+    Student_ID,
+    Term_ID,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+)
+SELECT
+    Student_ID,
+    3,
+    `ENGLISH LANGUAGE`,
+    `SOCIAL STUDIES`,
+    `REL. & MORAL EDU.`,
+    `MATHEMATICS`,
+    `INTEGRATED SCIENCE`,
+    `COMPUTING`,
+    `FRENCH`,
+    `GH. LANG. (AKUAPEM TWI)`,
+    `CAREER TECHNOLOGY`,
+    `CREATIVE ARTS & DESIGN`
+FROM stg_examscore_term3; 
+
+-- Validating the data warehouse 
+SELECT 'dim_student' AS Table_Name, COUNT(*) AS Total_Rows FROM dim_student
+UNION ALL
+SELECT 'dim_term', COUNT(*) FROM dim_term
+UNION ALL
+SELECT 'fact_attendance', COUNT(*) FROM fact_attendance
+UNION ALL
+SELECT 'fact_test1', COUNT(*) FROM fact_test1
+UNION ALL
+SELECT 'fact_test2', COUNT(*) FROM fact_test2
+UNION ALL
+SELECT 'fact_groupwork', COUNT(*) FROM fact_groupwork
+UNION ALL
+SELECT 'fact_projectwork', COUNT(*) FROM fact_projectwork
+UNION ALL
+SELECT 'fact_examscore', COUNT(*) FROM fact_examscore;
+
+-- checking for missing scores 
+SELECT *
+FROM fact_examscore
+WHERE `ENGLISH LANGUAGE` IS NULL;
+
+-- Dropping all staging tables so we are left with dimension and fact tables in the database
+DROP TABLE stg_attendance_term1;
+DROP TABLE stg_attendance_term2;
+DROP TABLE stg_attendance_term3;
+
+DROP TABLE stg_test1_term1;
+DROP TABLE stg_test1_term2;
+DROP TABLE stg_test1_term3;
+
+DROP TABLE stg_test2_term1;
+DROP TABLE stg_test2_term2;
+DROP TABLE stg_test2_term3;
+
+DROP TABLE stg_groupwork_term1;
+DROP TABLE stg_groupwork_term2;
+DROP TABLE stg_groupwork_term3;
+
+DROP TABLE stg_projectwork_term1;
+DROP TABLE stg_projectwork_term2;
+DROP TABLE stg_projectwork_term3;
+
+DROP TABLE stg_examscore_term1;
+DROP TABLE stg_examscore_term2;
+DROP TABLE stg_examscore_term3;
+
+DROP TABLE stg_student_lookup;
